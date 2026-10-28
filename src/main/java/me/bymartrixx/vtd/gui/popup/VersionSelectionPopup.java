@@ -47,9 +47,11 @@ public class VersionSelectionPopup extends AbstractScreenPopup implements GuiEve
     }
 
     private void updateSize() {
+        // Make sure the popup is wide enough for the title text
+        int width = Math.max(WIDTH, this.client.font.width(this.title) + TITLE_MARGIN * 4);
         int height = TITLE_MARGIN * 2 + this.client.font.lineHeight
                 + ENTRY_MARGIN + this.versions.size() * ENTRY_HEIGHT;
-        this.updateSize(WIDTH, height);
+        this.updateSize(width, height);
     }
 
     public void show() {
